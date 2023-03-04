@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "575100874961",
+    "firebase_url": "https://class-infomation-management-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "class-infomation-management",
+    "storage_bucket": "class-infomation-management.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:575100874961:android:33dd5f935c208397cb15f0",
+        "android_client_info": {
+          "package_name": "com.example.classinformationmanagement"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "575100874961-5gars7larfh5qnbeg3gd408t9refjc73.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBt9QAYdpF5Eg1XrvIlptJCAvG_l8eZBTA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "575100874961-5gars7larfh5qnbeg3gd408t9refjc73.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

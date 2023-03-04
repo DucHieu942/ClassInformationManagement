@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/classdiagram">
+
+    <fragment
+        android:id="@+id/classdiagram"
+        android:name="com.example.classinformationmanagement.ui.fragment.ClassFragment"
+        android:label="Sơ đồ lớp"
+        tools:layout="@layout/fragment_class" />
+
+    <fragment
+        android:id="@+id/liststudent"
+        android:name="com.example.classinformationmanagement.ui.fragment.ListStudentFragment"
+        android:label="Danh sách sinh viên"
+        tools:layout="@layout/fragment_list_student" />
+
+    <fragment
+        android:id="@+id/week"
+        android:name="com.example.classinformationmanagement.ui.fragment.WeekFragment"
+        android:label="Danh sách tuần học"
+        tools:layout="@layout/fragment_week" />
+    <fragment
+        android:id="@+id/informationapp"
+        android:name="com.example.classinformationmanagement.ui.fragment.InformatinAppFragment"
+        android:label="Giới thiệu ứng dụng"
+        tools:layout="@layout/fragment_informatin_app" />
+</navigation>
