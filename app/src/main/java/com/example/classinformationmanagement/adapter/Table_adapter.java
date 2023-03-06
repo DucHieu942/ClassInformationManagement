@@ -108,13 +108,13 @@ public class Table_adapter extends RecyclerView.Adapter<Table_adapter.ViewHolder
                     holder.secondStudent.setBackgroundResource(R.drawable.green_bg);
                 }
                 else {
-                    holder.firstStudent.setBackgroundResource(R.drawable.red_bg);
+                    holder.secondStudent.setBackgroundResource(R.drawable.red_bg);
                 }
                 if(table.getListRollCall().get(2) == true){
                     holder.thirdStudent.setBackgroundResource(R.drawable.green_bg);
                 }
                 else {
-                    holder.firstStudent.setBackgroundResource(R.drawable.red_bg);
+                    holder.thirdStudent.setBackgroundResource(R.drawable.red_bg);
                 }
             }
             if(table.getListRollCall().size()==2){
@@ -128,7 +128,7 @@ public class Table_adapter extends RecyclerView.Adapter<Table_adapter.ViewHolder
                     holder.secondStudent.setBackgroundResource(R.drawable.green_bg);
                 }
                 else {
-                    holder.firstStudent.setBackgroundResource(R.drawable.red_bg);
+                    holder.secondStudent.setBackgroundResource(R.drawable.red_bg);
                 }
             }
 

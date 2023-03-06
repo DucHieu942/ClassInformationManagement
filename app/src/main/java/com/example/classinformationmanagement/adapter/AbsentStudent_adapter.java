@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.classinformationmanagement.R;
 import com.example.classinformationmanagement.model.Student;
+import com.example.classinformationmanagement.model.StudentManage;
 
 import java.util.List;
 
@@ -18,11 +19,11 @@ public class AbsentStudent_adapter extends RecyclerView.Adapter<AbsentStudent_ad
 
 
     private android.content.Context context;
-    private List<Student> list;
+    private List<StudentManage> list;
 
 
 
-    public AbsentStudent_adapter(android.content.Context context, List<Student> list){
+    public AbsentStudent_adapter(android.content.Context context, List<StudentManage> list){
         this.context = context;
         this.list = list;
         notifyDataSetChanged();
@@ -37,9 +38,9 @@ public class AbsentStudent_adapter extends RecyclerView.Adapter<AbsentStudent_ad
     @Override
     public void onBindViewHolder(@NonNull AbsentStudent_adapter.ViewHolder holder, int position) {
 
-        Student student = list.get(position);
-        holder.fullname.setText(student.getFullname());
-        holder.id.setText(String.valueOf(student.getId()));
+        StudentManage studentManage = list.get(position);
+        holder.fullname.setText(studentManage.getFullname());
+        holder.id.setText(String.valueOf(studentManage.getId()));
 
     }
 

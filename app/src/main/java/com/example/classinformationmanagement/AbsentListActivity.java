@@ -34,7 +34,7 @@ public class AbsentListActivity extends AppCompatActivity {
 
     private RecyclerView absentStudentRec;
     private DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://class-infomation-management-default-rtdb.asia-southeast1.firebasedatabase.app/");
-    private List<Student> absentStudentList = new ArrayList<>();
+    private List<StudentManage> absentStudentList = new ArrayList<>();
     private AbsentStudent_adapter absentStudent_adapter;
     private Button btnBack;
     Boolean ischeckConnection =false;
@@ -44,18 +44,15 @@ public class AbsentListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_absent_list);
 
-
         Bundle bundle = getIntent().getExtras();
         if(bundle == null){
             return;
         }
         Week week = (Week) bundle.get("object_week");
-        List<Long> listIdStudent = week.getAbsenceStudentIdList();
         btnBack = findViewById(R.id.back2);
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 finish();
             }
         });
@@ -67,21 +64,37 @@ public class AbsentListActivity extends AppCompatActivity {
         absentStudent_adapter = new AbsentStudent_adapter(this,absentStudentList);
         absentStudentRec.setAdapter(absentStudent_adapter);
 
-
-
-
         if(isCheckConnection()){
-            databaseReference.child("Student").addListenerForSingleValueEvent(new ValueEventListener() {
+            databaseReference.child("StudentManage").addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     for(DataSnapshot dataSnapshot: snapshot.getChildren()){
-                        Student student = dataSnapshot.getValue(Student.class);
-                        System.out.println("Listid: "+listIdStudent);
-                        if(listIdStudent.contains(student.getId())){
-                            absentStudentList.add(student);
+                        StudentManage studentManage = dataSnapshot.getValue(StudentManage.class);
+                        if(week.getId().toString().equals(studentManage.getWeekId().toString()) && studentManage.getRollCall() == false  ){
+
+                            {
+                                databaseReference.child("Student").addListenerForSingleValueEvent(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                        for(DataSnapshot dataSnapshot: snapshot.getChildren()){
+                                            Student student= dataSnapshot.getValue(Student.class);
+                                            if(student.getId().toString().equals(studentManage.getStudentId().toString())){
+                                                studentManage.setFullname(student.getFullname());
+                                                absentStudentList.add(studentManage);
+                                                absentStudent_adapter.notifyDataSetChanged();
+                                                break;
+                                            }
+                                        }
+                                    }
+                                    @Override
+                                    public void onCancelled(@NonNull DatabaseError error) {
+                                    }
+                                });
+
+                            }
                         }
+
                     }
-                    absentStudent_adapter.notifyDataSetChanged();
                 }
 
                 @Override
