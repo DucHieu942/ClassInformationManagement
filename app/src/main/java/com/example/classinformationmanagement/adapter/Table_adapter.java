@@ -62,6 +62,7 @@ public class Table_adapter extends RecyclerView.Adapter<Table_adapter.ViewHolder
             if(table.getListname().size()==2){
                 holder.firstStudent.setText(table.getListname().get(0));
                 holder.secondStudent.setText(table.getListname().get(1));
+                holder.thirdStudent.setText(".......");
             }
         }
 
@@ -72,13 +73,25 @@ public class Table_adapter extends RecyclerView.Adapter<Table_adapter.ViewHolder
                     holder.firstStudent.setTypeface(null, Typeface.BOLD_ITALIC);
                     holder.firstStudent.setPaintFlags(holder.firstStudent.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
                 }
+                else {
+                    holder.firstStudent.setTypeface(null, Typeface.NORMAL);
+                    holder.firstStudent.setPaintFlags(holder.firstStudent.getPaintFlags() & (~Paint.UNDERLINE_TEXT_FLAG));
+                }
                 if(table.getListrole().get(1).equals("leader")){
                     holder.secondStudent.setTypeface(null, Typeface.BOLD_ITALIC);
                     holder.secondStudent.setPaintFlags(holder.secondStudent.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
                 }
+                else {
+                    holder.secondStudent.setTypeface(null, Typeface.NORMAL);
+                    holder.secondStudent.setPaintFlags(holder.secondStudent.getPaintFlags() & (~Paint.UNDERLINE_TEXT_FLAG));
+                }
                 if(table.getListrole().get(2).equals("leader")){
                     holder.thirdStudent.setTypeface(null, Typeface.BOLD_ITALIC);
                     holder.thirdStudent.setPaintFlags(holder.thirdStudent.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+                }
+                else {
+                    holder.thirdStudent.setTypeface(null, Typeface.NORMAL);
+                    holder.thirdStudent.setPaintFlags(holder.thirdStudent.getPaintFlags() & (~Paint.UNDERLINE_TEXT_FLAG));
                 }
             }
             if(table.getListname().size()==2){
@@ -86,9 +99,17 @@ public class Table_adapter extends RecyclerView.Adapter<Table_adapter.ViewHolder
                     holder.firstStudent.setTypeface(null, Typeface.BOLD_ITALIC);
                     holder.firstStudent.setPaintFlags(holder.firstStudent.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
                 }
+                else {
+                    holder.firstStudent.setTypeface(null, Typeface.NORMAL);
+                    holder.firstStudent.setPaintFlags(holder.firstStudent.getPaintFlags() & (~Paint.UNDERLINE_TEXT_FLAG));
+                }
                 if(table.getListrole().get(1).equals("leader")){
                     holder.secondStudent.setTypeface(null, Typeface.BOLD_ITALIC);
                     holder.secondStudent.setPaintFlags(holder.secondStudent.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+                }
+                else {
+                    holder.secondStudent.setTypeface(null, Typeface.NORMAL);
+                    holder.secondStudent.setPaintFlags(holder.secondStudent.getPaintFlags() & (~Paint.UNDERLINE_TEXT_FLAG));
                 }
             }
 
